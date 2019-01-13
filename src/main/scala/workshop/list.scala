@@ -9,7 +9,12 @@ sealed trait List[+T] {
   /**
     * Adds an element at the end (after the tail) of the list.
     */
-  def append[ST >: T](a: ST): List[ST] = ???
+  def append[ST >: T](a: ST): List[ST] = {
+    this match {
+      case Empty            => Cons(a, Empty)
+      case Cons(head, tail) => Cons(head, tail.append(a))
+    }
+  }
 
   /**
     * Creates a new list containing only the elements matching the predicate.

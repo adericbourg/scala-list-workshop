@@ -1,8 +1,7 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
-@Ignore
 class AppendTest extends FunSuite with Matchers {
 
   test("append should create a new list with provided element as the last element " +

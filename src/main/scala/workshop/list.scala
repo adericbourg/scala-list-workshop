@@ -19,7 +19,19 @@ sealed trait List[+T] {
   /**
     * Creates a new list containing only the elements matching the predicate.
     */
-  def filter(predicate: T => Boolean): List[T] = ???
+  def filter[ST >: T](predicate: ST => Boolean): List[T] = {
+    this match {
+      case Empty            =>
+        Empty
+      case Cons(head, tail) =>
+        if (predicate(head)) {
+          Cons(head, tail.filter(predicate))
+        }
+        else {
+          tail.filter(predicate)
+        }
+    }
+  }
 
   /**
     * Applies the operator f to each elements of the list and the accumulated value, starting from the right to the

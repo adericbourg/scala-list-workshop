@@ -1,8 +1,7 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
-@Ignore
 class FilterTest extends FunSuite with Matchers {
 
   test("filter should create a new list containing only elements matching the predicate") {

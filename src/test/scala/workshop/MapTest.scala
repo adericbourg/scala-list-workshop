@@ -1,10 +1,9 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
 import scala.annotation.tailrec
 
-@Ignore
 class MapTest extends FunSuite with Matchers {
 
   test("map should create a new list where provided function is applied to each elements") {

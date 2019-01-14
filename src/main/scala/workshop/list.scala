@@ -71,7 +71,7 @@ sealed trait List[+T] {
   /**
     * Creates a new list where elements are the elements of the initial list transformed with the provided function.
     */
-  def map[S](f: T => S): List[S] = ???
+  def map[S](f: T => S): List[S] = this.foldRight(workshop.List[S]()) { case (item, acc) => Cons(f(item), acc) }
 }
 
 object List {

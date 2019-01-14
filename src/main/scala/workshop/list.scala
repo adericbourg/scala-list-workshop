@@ -1,5 +1,7 @@
 package workshop
 
+import scala.annotation.tailrec
+
 sealed trait List[+T] {
   /**
     * Adds an element at the head of the list.
@@ -48,11 +50,17 @@ sealed trait List[+T] {
     * Applies the operator f to each elements of the list and the accumulated value, starting from the left to the
     * right.
     */
-  def foldLeft[S](accumulator: S)(f: (S, T) => S): S = {
-    this match {
-      case Empty            => accumulator
-      case Cons(head, tail) => tail.foldLeft(f(accumulator, head))(f)
+
+  def foldLeft[S](accumulatorInitialValue: S)(f: (S, T) => S): S = {
+    @tailrec
+    def impl(list: List[T], accumulator: S): S = {
+      list match {
+        case Empty            => accumulator
+        case Cons(head, tail) => impl(tail, f(accumulator, head))
+      }
     }
+
+    impl(this, accumulatorInitialValue)
   }
 
   /**

@@ -37,7 +37,12 @@ sealed trait List[+T] {
     * Applies the operator f to each elements of the list and the accumulated value, starting from the right to the
     * left.
     */
-  def foldRight[S](accumulator: S)(f: (T, S) => S): S = ???
+  def foldRight[S](accumulator: S)(f: (T, S) => S): S = {
+    this match {
+      case Empty            => accumulator
+      case Cons(head, tail) => f(head, tail.foldRight(accumulator)(f))
+    }
+  }
 
   /**
     * Applies the operator f to each elements of the list and the accumulated value, starting from the left to the

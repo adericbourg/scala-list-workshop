@@ -1,8 +1,7 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
-@Ignore
 class FoldLeftTest extends FunSuite with Matchers {
 
   test("foldLeft should accumulate items from non-empty list according to the provided function") {

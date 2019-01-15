@@ -66,7 +66,7 @@ sealed trait List[+T] {
   /**
     * Reverses the list.
     */
-  def reverse: List[T] = ???
+  def reverse: List[T] = this.foldLeft(workshop.List[T]()) { case (acc, item) => Cons(item, acc) }
 
   /**
     * Creates a new list where elements are the elements of the initial list transformed with the provided function.

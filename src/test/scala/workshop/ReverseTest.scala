@@ -1,8 +1,7 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
-@Ignore
 class ReverseTest extends FunSuite with Matchers {
 
   test("reverse should create a new list with elements in reverse order") {

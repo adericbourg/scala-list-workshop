@@ -4,7 +4,7 @@ sealed trait List[+T] {
   /**
     * Adds an element at the head of the list.
     */
-  def prepend[ST >: T](a: ST): List[ST] = ???
+  def prepend[ST >: T](a: ST): List[ST] = Cons(a, this)
 
   /**
     * Adds an element at the end (after the tail) of the list.

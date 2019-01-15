@@ -1,8 +1,7 @@
 package workshop
 
-import org.scalatest.{FunSuite, Ignore, Matchers}
+import org.scalatest.{FunSuite, Matchers}
 
-@Ignore
 class PrependTest extends FunSuite with Matchers {
 
   test("prepend should create a new list with provided element as head when initial list is filled") {
